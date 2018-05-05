@@ -47,11 +47,11 @@
                             <div class="content">
                                 <div class="author">
                                     <a class="avatar" target="_blank" href="">
-                                        <img src="images/tou.jpg" alt="64">
+                                        <img src="static/images/tou.jpg" alt="64">
                                     </a>
                                     <div class="info">
                                         <a class="nickname" target="_blank" href="">麦大人</a>
-                                        <span class="time">04.19 12:21</span>
+                                        <span class="time">2018-04-29</span>
                                     </div>
                                 </div>
                                 <a class="title" target="_blank" href="">比贫穷更可怕的，是缺乏这3样东西</a>
@@ -101,7 +101,7 @@ export default {
           .then((res) => {
             let o = res.body;
             this.$set(this.article, 'gmtCreate', o.data.gmtCreate.replace(/Z/," ").replace(/T/," "));
-            this.$set(this.article, 'iconPath', o.data.iconPath ? (this.$http.options.root + o.data.iconPath) : "static/images/default.png");
+            this.$set(this.article, 'iconPath', "static/images/default.png");
           });
 
         
