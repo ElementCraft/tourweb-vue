@@ -9,7 +9,7 @@
         </div>
         <div v-else>
           <a class="btn sign-up" href="" data-toggle="modal" data-target="#addArticleModal">写攻略</a>
-          <router-link class="btn log-in" to="/profile">欢迎，{{user.account}}</router-link>
+          <a class="btn log-in" @click.prevent="logout">欢迎，{{user.account}}</a>
         </div>
           
         <div class="container">
@@ -295,6 +295,10 @@ export default {
           this.err = result.msg;
         }
       });
+    },
+    logout(){
+      this.$localStorage.remove("user");
+      this.$router.go();
     }
   }
 }
