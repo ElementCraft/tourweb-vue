@@ -3,22 +3,23 @@
     <div class="row">
         <div class="col-xs-25 main">
             <div>
-                <h1 class="title">{{article.title}}</h1>
+              <h1 class="title">{{article.title}}</h1>
             </div>
             <div class="author">
                 <a class="avatar" href="">
-                    <img :src="article.iconPath" alt="96">
+                  <img :src="article.iconPath" alt="96">
                 </a>
                 <div class="info">
                   <span class="name"><a href="">{{article.userAccount}}</a></span>
                   <!-- 文章数据信息 -->
                   <div class="meta">
-                      <span class="publish-time">{{article.gmtCreate}}</span>
+                    <span class="publish-time">{{article.gmtCreate}}</span>
                   </div>
               </div>
           </div>
       </div>
     </div>
+    <img :src="article.imgPath" alt="">
     <!--正文-->
     <div class="content">
         {{article.content}}

@@ -8,6 +8,7 @@
           <a class="btn log-in" href="" data-toggle="modal" data-target="#loginModal">登录</a>
         </div>
         <div v-else>
+          <router-link class="btn sign-up" to="/personal">个人中心</router-link>
           <a class="btn sign-up" href="" data-toggle="modal" data-target="#addArticleModal">写攻略</a>
           <a class="btn log-in" @click.prevent="logout">欢迎，{{user.account}}</a>
         </div>

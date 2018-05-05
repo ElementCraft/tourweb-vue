@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import China from '@/components/China'
 import Foreign from '@/components/Foreign'
 import Detail from '@/components/Detail'
+import Personal from '@/components/Personal'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/detail/:id',
       name: 'Detail',
       component: Detail
+    },{
+      path: '/personal',
+      name: 'Personal',
+      component: Personal
     }
   ]
 })
