@@ -19,9 +19,11 @@
           </div>
       </div>
     </div>
-    <img :src="article.imgPath" alt="">
+    
     <!--正文-->
     <div class="content">
+        <img :src="article.imgPath" alt="" style="max-width:40%; height:auto;">
+        <br>
         {{article.content}}
     </div>
 
@@ -95,13 +97,16 @@ export default {
   mounted(){
     this.$http.get("api/user/article/" + this.$route.params.id)
       .then((res) => {
+        res.body.data.gmtCreate = res.body.data.gmtCreate.replace(/Z/," ").replace(/T/," ");
+        res.body.data.imgPath = (this.$http.options.root + res.body.data.imgPath);
         this.article = res.body.data;
 
-        this.$http.get("api/user/info/" + this.article.userAccount)
-          .then((res) => {
-            let o = res.body;
-            this.$set(this.article, 'gmtCreate', o.data.gmtCreate.replace(/Z/," ").replace(/T/," "));
-            this.$set(this.article, 'iconPath', "static/images/default.png");
+        this.$http.get("api/user/info/" + encodeURI(this.article.userAccount))
+          .then((re) => {
+            let o = re.body;
+            console.log(re.body)
+            
+            this.$set(this.article, 'iconPath', o.data.iconPath ? (this.$http.options.root + o.data.iconPath) : "static/images/default.png");
           });
 
         
