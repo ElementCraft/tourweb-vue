@@ -99,7 +99,7 @@ export default {
         this.$http.get("api/user/info/" + this.article.userAccount)
           .then((res) => {
             let o = res.body;
-
+            this.$set(this.article, 'gmtCreate', o.data.gmtCreate.replace(/Z/," ").replace(/T/," "));
             this.$set(this.article, 'iconPath', o.data.iconPath ? (this.$http.options.root + o.data.iconPath) : "static/images/default.png");
           });
 
