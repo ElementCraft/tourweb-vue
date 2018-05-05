@@ -78,7 +78,11 @@ export default {
             .then((res) => {
               let o = res.body;
 
-              Vue.$set(Vue.articles[i],'iconPath',o.data.iconPath);
+              if(o.data.iconPath){
+                Vue.$set(Vue.articles[i],'iconPath', this.$http.options.root +o.data.iconPath);
+              }else{
+                Vue.$set(Vue.articles[i],'iconPath', null);
+              }
             });
         });
       });
